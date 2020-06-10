@@ -1,0 +1,39 @@
+@import 'libs/reset';
+@import 'base/fonts';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/animations';
+@import 'blocks/photo';
+@import 'blocks/messages';
+
+* {
+    box-sizing: border-box;
+}
+
+
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.container {
+    margin: 0 15px;
+}
+
+body {
+    font-family: 'Raleway', serif;
+    
+    ::-webkit-scrollbar {
+        width: 2px; 
+        background-color:  $grey;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: $blue;
+        border-radius: 9em;
+    }
+}
+
+
+
+

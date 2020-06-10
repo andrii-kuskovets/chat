@@ -1,0 +1,68 @@
+$breakpoints: (
+    'small':  ( min-width:  768px ),
+    'medium': ( min-width:  992px ),
+    'large':  ( min-width: 1200px ),
+    'x-large': (min-width: 1500px)
+) !default;
+
+/// @param {String} $breakpoint 
+/// @require $breakpoints
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+            + "Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin button-variant($color, $background, $border, $font-weight) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+    font-weight: $font-weight;
+    position: relative;
+    transform: perspective(1px) translateZ(0);
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-color: darken($background, 25%);
+        transform: scaleX(0);
+        transform-origin: 50% 0;
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+
+    &:hover,
+	&:focus,
+	&:active {
+        
+		&:before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+  // Button sizes
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size, $border-radius, $width) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    width: $width;
+    border-radius: $border-radius;
+}
+
+
+
+

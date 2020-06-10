@@ -1,0 +1,61 @@
+@import '../../assets/scss/style.scss';
+@import '../../assets/scss/base/_variables.scss';
+
+.contacts {
+    padding: $padding;
+    flex-grow: 1;
+    overflow: auto;
+
+    &__title {
+        font-size: 32px;
+        color: $blue;
+    }
+
+    .user {
+        overflow: hidden;
+
+        &__description {
+            width: 75%;
+            margin-left: 20px;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        
+            span {
+                display: block;
+                font-size: 12px;
+                color: grey;
+                margin-bottom: 5px;
+            }
+        }
+
+        border-bottom: $border;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            background-color: rgba($grey, .3);
+        }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            padding: $padding;
+        }
+
+        &__name {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: $black;
+        }
+
+        &__last-message {
+            font-size: 12px;
+            color: grey;
+            width: 80%;
+            max-height: 15px;
+            overflow: hidden;
+        }
+    }
+}
