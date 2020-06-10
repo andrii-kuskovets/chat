@@ -1,0 +1,13 @@
+@import './assets/scss/base/_variables.scss';
+
+.app {
+    display: flex;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        border-right: $border;
+        width: 30%;
+        height: 100vh;
+    }
+}
