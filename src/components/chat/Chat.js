@@ -10,11 +10,12 @@ function Chat() {
     const [user, setUser] = useState({});
     let { id } = useParams();
 
+
     useEffect(() => {
         setChat(USERS[id].MessagesData)
         setUser(USERS[id])
-    }, [id, setChat, setUser]); 
-
+    }, [id, setChat, setUser]);
+    
     return (
         <div className='chat'>
             <div className="messages">
@@ -24,7 +25,13 @@ function Chat() {
                             <div className="user-profile__info">
                                 <div className="photo">
                                     <img src={user.photo} alt='user'/>
-                                    <Icon className="photo__icon" name="check" />
+                                    <>
+                                        {user.online === true ? (
+                                            <Icon className="photo__icon" name="check" />
+                                        ) : (
+                                            <span></span>
+                                        )}
+                                    </>
                                 </div>
                                 <h1 className="user-profile__title">{user.fullName}</h1>
                             </div>
@@ -62,11 +69,10 @@ function Chat() {
                     </div>
                 </div>
             </div>
-        <ChatForm />
+        <ChatForm addMessage={setChat} message={chat}/>
     </div>
     
     );
-    
 }
 
 export default Chat;

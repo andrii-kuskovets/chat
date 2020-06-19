@@ -1,6 +1,8 @@
 .messages {
     flex-grow: 1;
     overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
 
     .user-profile {
         border-bottom: $border;
@@ -24,19 +26,27 @@
 
     .message {
         padding: 15px 0;
-    
+        max-width: 100%;
+
         &__wrapper {
             display: flex;
             align-items: flex-start;
+            width: 50%;
     
             &_me {
                 display: block;
                 text-align: right;
+                margin-left: auto;
             }
         }
     
         &__description {
             margin: 10px;
+            width: 80%;
+
+            &_me {
+                margin-left: auto;
+            }
         }
     
         &__text {
@@ -46,6 +56,7 @@
             margin-bottom: 5px;
             border-radius: 18px;
             color: $white;
+            text-align: left;
     
             &_me {
                 background-color: $dark-grey;

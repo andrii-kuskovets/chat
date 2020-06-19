@@ -18,7 +18,13 @@ function Contacts() {
                                 <div className="user__wrapper">
                                     <div className="photo">
                                         <img src={item.photo} alt='user'/>
-                                        <Icon className="photo__icon" name="check" />
+                                        <>
+                                            {item.online === true ? (
+                                                <Icon className="photo__icon" name="check" />
+                                            ) : (
+                                                <span></span>
+                                            )}
+                                        </>
                                     </div>
                                     <div className="user__description">
                                         <h3 className="user__name">{item.fullName}</h3>
